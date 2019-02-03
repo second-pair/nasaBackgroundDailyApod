@@ -7,7 +7,7 @@ backgroundDailyApod.exe [date]
 
 ##  API Key
 The programme will run quite happily with the demo API key, but if you already have your own, feel free to slot it into the `apiKey` file in the same directory as the programme.
-You'll need your own API key to use 
+You'll need your own API key to be able to specify a date, since the demo key only supports getting information on today's image.
 
 ##  Compiling
 The python script can be run in-place no problem, but I have included a `makefile` for simple compiling for distribution to computers not running Python (you're welcome, Grandma :).
@@ -17,6 +17,7 @@ The resulting files in `bin` are all you need to run the programme on a clean in
 ##  Dependencies
 For running:
 - requests
+
 For compiling:
 - pyinstaller
 
