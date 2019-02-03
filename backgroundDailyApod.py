@@ -29,12 +29,12 @@ else:
 	todayDate = datetime .date .today () .isoformat ()
 
 #  Fetch APOD data
-theFullUrl = "%s?api_key=%s&date=%s" % (baseUrl, apiKey, todayDate)
+if apiKey == "DEMO_KEY":
+	theFullUrl = "%s?api_key=%s" % (baseUrl, apiKey)
+else:
+	theFullUrl = "%s?api_key=%s&date=%s" % (baseUrl, apiKey, todayDate)
 apodRequest = requests .get (theFullUrl)
 apodDescText = ""
-
-print (apodRequest .status_code)
-print (apodRequest .text)
 
 #  Check everything is in order
 if apodRequest .status_code == 200 and json .loads (apodRequest .text) ["media_type"] == "image":
