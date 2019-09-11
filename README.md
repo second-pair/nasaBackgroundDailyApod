@@ -22,6 +22,7 @@ For compiling:
 - pyinstaller
 
 ##  Running
-You can simply double-click the `backgroundDailyApod.exe` executable to run.
+You need to have the `apiKey` file in the same directory as `backgroundDailyApod.exe`.
+You can simply double-click the `backgroundDailyApod.exe` executable to run it.
 Likewise, you can set up an entry in "Task Scheduler" to run it as a normal executable.
-If running on the command-line, you can also specify a custom date in the "yyyy-mm-dd" format and the programme will try to fetch the APOD on that date.
+If running on the command-line, you can also specify a custom date in the "yyyy-mm-dd" format and the programme will try to fetch the APOD on that date, but this requires that `apiKEy` contains a valid API key issued by NASA [(apply here!)](https://api.nasa.gov/index.html#apply-for-an-api-key).
