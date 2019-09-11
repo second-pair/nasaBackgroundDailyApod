@@ -18,6 +18,11 @@ apodDescLoc = "apodDescToday.txt"
 keyFile = open ("apiKey", "r")
 apiKey = keyFile .read ()
 keyFile .close ()
+if apiKey [-1:] == "\n":
+	if apiKey [-2:] == "\r\n":
+		apiKey = apiKey [:-2]
+	else:
+		apiKey = apiKey [:-1]
 
 #  Determine today's date (or read it as a CLI argument)
 if len (sys .argv) != 1 and \
@@ -33,6 +38,8 @@ if apiKey == "DEMO_KEY":
 	theFullUrl = "%s?api_key=%s" % (baseUrl, apiKey)
 else:
 	theFullUrl = "%s?api_key=%s&date=%s" % (baseUrl, apiKey, todayDate)
+
+print ("Fetching URL:  " + theFullUrl)
 apodRequest = requests .get (theFullUrl)
 apodDescText = ""
 
@@ -60,3 +67,7 @@ if apodRequest .status_code == 200 and json .loads (apodRequest .text) ["media_t
 	imageFile .close ()
 	#  Change background
 	ctypes .windll .user32 .SystemParametersInfoW (20, 0, os .getcwd () + "\\" + apodImageLoc, 3)
+else:
+	print ("Couldn't get what we needed!")
+	print ("Status Code:  " + str (apodRequest .status_code))
+	print ("Media Type:  " + str (json .loads (apodRequest .text) ["media_type"]))

@@ -3,4 +3,4 @@ make:
 	cp apiKey bin/apiKey
 	
 clean:
-	rm -rf bin build __pycache__
+	rm -rf bin build __pycache__ apodImageToday* apodDescToday.txt
