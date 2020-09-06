@@ -4,3 +4,6 @@
 build
 bin
 __pycache__
+
+apodDescToday.txt
+apodImageToday.*
